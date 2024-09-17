@@ -1,0 +1,50 @@
+# perform checks on a file
+
+# check the technical writing for various characteristics
+- src/questions.md:
+    - description: Ensure that src/questions.md exists
+      check: ConfirmFileExists
+    # - description: Write a minimum number of meaningful words in the src/questions.md
+    #   check: CountFileWords
+    #   options:
+    #     count: 400
+    #     exact: false
+    - description: Complete all TODOs, remove the TODO markers in src/questions.md
+      check: MatchFileFragment
+      options:
+        fragment: TODO
+        count: 0
+        exact: true
+    - description: Delete the 'Add Your Name Here' prompt in src/questions.md
+      check: MatchFileFragment
+      options:
+        fragment: "Add Your Name Here"
+        count: 0
+        exact: true
+
+- writing/reflection.md:
+    - description: Ensure that writing/reflection.md exists
+      check: ConfirmFileExists
+    # - description: Write a minimum number of meaningful words in writing/reflection.md
+    #   check: CountFileWords
+    #   options:
+    #     count: 400
+    #     exact: false
+    - description: Complete all TODOs, remove the TODO markers in writing/reflection.md
+      check: MatchFileFragment
+      options:
+        fragment: TODO
+        count: 0
+        exact: true
+    - description: Delete the 'Add Your Name Here' prompt in writing/reflection.md
+      check: MatchFileFragment
+      options:
+        fragment: "Add Your Name Here"
+        count: 0
+        exact: true
+
+# count number of commits in the GitHub repository
+- description: Have at least a specific minimum number of commits (4) in repository
+  check: CountCommits
+  options:
+    count: 4
